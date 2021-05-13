@@ -1,8 +1,10 @@
 # kubernetes-tutorial
 
-A simple Kubernetes tutorial
+Kubernetes tutorials
 
-## Step 1 - Deploy a sample application
+## Hello There
+
+### Step 1 - Deploy a sample application
 
 Deploy the application with:
 
@@ -16,7 +18,7 @@ Verify the pod is running
 kubectl get pods
 ```
 
-## Step 2 - Add a service
+### Step 2 - Add a service
 
 Deploy the service
 
@@ -32,7 +34,7 @@ kubectl port-forward service/hello-there-service 3000
 
 You should now be able to access the application on ```http://localhost:3000```.
 
-## Step 3 - Add and use a ConfigMap
+### Step 3 - Add and use a ConfigMap
 
 First, apply the config map.
 
@@ -54,7 +56,7 @@ kubectl patch service hello-there-service --type=json -p='[{"op": "replace", "pa
 
 After patching run ```kubectl port-forward service/hello-there-service 3000``` again and the applicaition should load.
 
-## Step 4 - Add a Secret
+### Step 4 - Add a Secret
 
 First create a secret.
 
@@ -73,3 +75,7 @@ Verify that you can see the ```/var/secrets/config``` file.
 ```shell
 kubectl exec $(kubectl get pods -l app=hello-there -o custom-columns=":metadata.name") -- cat /var/secrets/config
 ```
+
+## Stateful Set
+
+To deploy this example simply apply the manifests: ```kubectl apply -f statefulset/```
