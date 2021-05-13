@@ -16,8 +16,8 @@ spec:
         image: jtrouth/hello-there:latest
         resources:
           requests:
-            memory: "32Mi"
-            cpu: "100m"
+            memory: "8Mi"
+            cpu: "10m"
           limits:
             memory: "128Mi"
             cpu: "500m"
